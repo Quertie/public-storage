@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "33ebcb94-31a5-45ee-b1f3-d4f1ee7bedd9",
+		"name": "Azure Open AI Deployment test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26776977"
+	},
+	"item": [
+		{
+			"name": "request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"Once upon a time\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{openAIResourceName}}.openai.azure.com/openai/deployments/{{deploymentName}}/completions?api-version=2022-12-01",
+					"protocol": "https",
+					"host": [
+						"{{openAIResourceName}}",
+						"openai",
+						"azure",
+						"com"
+					],
+					"path": [
+						"openai",
+						"deployments",
+						"{{deploymentName}}",
+						"completions"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2022-12-01"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "clientId",
+				"value": "{{clientId}}",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "https://login.microsoftonline.com/{{tenant}}/oauth2/v2.0/authorize",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": "https://cognitiveservices.azure.com/.default",
+				"type": "string"
+			},
+			{
+				"key": "redirect_uri",
+				"value": "{{redirect_uri}}",
+				"type": "string"
+			},
+			{
+				"key": "authRequestParams",
+				"value": [
+					{
+						"key": "response_type",
+						"value": "token",
+						"enabled": true,
+						"send_as": "request_url"
+					},
+					{
+						"key": "response_mode",
+						"value": "fragment",
+						"enabled": true,
+						"send_as": "request_url"
+					}
+				],
+				"type": "any"
+			},
+			{
+				"key": "state",
+				"value": "12345",
+				"type": "string"
+			},
+			{
+				"key": "refreshRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "tokenRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "tokenName",
+				"value": "Token",
+				"type": "string"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "implicit",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "tenant",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "clientId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "openAIResourceName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "deploymentName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "redirect_uri",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
